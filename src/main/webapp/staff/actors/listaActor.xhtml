@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listado</title>
+    </h:head>
+    <h:body>
+        <p:dataTable var="actor" value="#{actorBean.actorList}">
+            <f:facet name="header">
+                Lista de actores
+            </f:facet>
+            
+            <p:column headerText="ID">
+                <h:outputText value="#{actor.actor_id}" />
+            </p:column>
+            
+            <p:column headerText="Nombre">
+                <h:outputText value="#{actor.firstName}" />
+            </p:column>
+            
+            <p:column headerText="Apellidos">
+                <h:outputText value="#{actor.lastName}" />
+            </p:column>
+            
+            <p:column headerText="Ultima Actualización">
+                <h:outputText value="#{actor.last_update}">
+                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+                </h:outputText>
+            </p:column>
+            
+        </p:dataTable>
+    </h:body>
+</html>
+

@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.sql.Timestamp;
+
 
 /**
  *
@@ -15,7 +17,7 @@ public class Actor {
     private int actor_id;
     private String firstName;
     private String lastName;
-    private String last_update;
+    private Timestamp last_update;
 
     public Actor(){
         
@@ -45,11 +47,11 @@ public class Actor {
         this.lastName = lastName;
     }
 
-    public String getLast_update() {
+    public Timestamp getLast_update() {
         return last_update;
     }
 
-    public void setLast_update(String last_update) {
+    public void setLast_update(Timestamp last_update) {
         this.last_update = last_update;
     }
     

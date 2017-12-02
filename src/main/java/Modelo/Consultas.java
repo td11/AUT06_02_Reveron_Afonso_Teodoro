@@ -7,7 +7,7 @@ package Modelo;
  */
 public class Consultas {
     
-    private final String todosLosActores = "select * from actor";
+    private final String todosLosActores = "select actor_id,firstname,lastname,last_update from actor";
 
     public Consultas(){
         
