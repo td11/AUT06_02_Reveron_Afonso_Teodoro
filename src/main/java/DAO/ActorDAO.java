@@ -1,31 +1,33 @@
 package DAO;
 
-
 import Modelo.Actor;
 import Modelo.Conexion;
 import Modelo.Consultas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- * Esta clase es el DAO de actor que implementa la interfaz de metodos
- * y le hace una peticion al modelo de momento solo devolveria una lista
- * de actores
+ * Esta clase es el DAO de actor que implementa la interfaz de metodos y le hace
+ * una peticion al modelo de momento solo devolveria una lista de actores
+ *
  * @author Teddy
  */
-public class ActorDAO implements metodos{
+public class ActorDAO implements metodos {
 
     Conexion miconexion;
     Consultas miconsulta;
-    
-    public ActorDAO(){}
-    
+
+    public ActorDAO() {
+    }
+
     @Override
     public List<Actor> selectAll() {
-        List<Actor> listadevolver = null;
+        List<Actor> listadevolver = new ArrayList<>();
 
         try {
             miconexion.abrirConexion();
@@ -45,14 +47,13 @@ public class ActorDAO implements metodos{
             ps.close();
             miconexion.getConexion().close();
 
-        } catch (ClassNotFoundException ex) {
-            
         } catch (SQLException ex) {
-            
+            Logger.getLogger(ActorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ActorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return listadevolver;
     }
-    
-   
+
 }

@@ -8,7 +8,9 @@
         <title>Listado</title>
     </h:head>
     <h:body>
-        <p:dataTable var="actor" value="#{actorBean.actorList}">
+        <p:dataTable var="actor" value="#{actorBean.actorList}"
+                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                paginator="true" rows="10">
             <f:facet name="header">
                 Lista de actores
             </f:facet>

@@ -1,4 +1,4 @@
-package es.cifpcm.sakilajsf.web.bean;
+package bean;
 
 import DAO.ActorDAO;
 import Modelo.Actor;
@@ -7,7 +7,7 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
 
 /**
- *
+ * La clase bean
  * @author Teddy
  */
 @Named(value = "actorBean")

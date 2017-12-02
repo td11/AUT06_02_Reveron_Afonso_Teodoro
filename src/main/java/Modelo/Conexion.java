@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Gestionar conexion a la base de datos
@@ -24,9 +26,30 @@ public class Conexion {
         password = rb.getString("database.password");
     }
 
+    /**
+     * Empezar conexion
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
     public void abrirConexion() throws ClassNotFoundException, SQLException {
         Class.forName(this.driver);
         conexion = DriverManager.getConnection(this.url, this.user, this.password);
+    }
+    
+    /**
+     * Es como abrir conexion pero sin usar properties
+     */
+    public void open(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            String database = "sakila";
+            String user = "2dawa";
+            String password="2dawa";
+            String url = "jdbc:mysql://localhost/"+database;
+            conexion = DriverManager.getConnection(url,user,password);
+        } catch (Exception e) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 
     //Getters y Setters
