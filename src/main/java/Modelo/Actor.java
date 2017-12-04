@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 
 /**
@@ -17,8 +13,17 @@ public class Actor {
     private int actor_id;
     private String firstName;
     private String lastName;
-    private Timestamp last_update;
+    private Date last_update;
 
+    public Actor(int actor_id, String firstName, String lastName, Date last_update) {
+        this.actor_id = actor_id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.last_update = last_update;
+    }
+
+    
+    
     public Actor(){
         
     }
@@ -47,13 +52,15 @@ public class Actor {
         this.lastName = lastName;
     }
 
-    public Timestamp getLast_update() {
+    public Date getLast_update() {
         return last_update;
     }
 
-    public void setLast_update(Timestamp last_update) {
+    public void setLast_update(Date last_update) {
         this.last_update = last_update;
     }
+
+    
     
     
     

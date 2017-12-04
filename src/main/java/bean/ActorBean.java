@@ -2,8 +2,9 @@ package bean;
 
 import DAO.ActorDAO;
 import Modelo.Actor;
+import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 /**
@@ -12,17 +13,14 @@ import javax.inject.Named;
  */
 @Named(value = "actorBean")
 @RequestScoped
-public class ActorBean extends Actor {
- 
-    private ActorDAO actorDao = new ActorDAO();
+public class ActorBean {
     
     public ActorBean(){
         
     }
     
-    public List<Actor> getActorList() {
-        List<Actor> listado = actorDao.selectAll();
-        return listado;
+    public ArrayList<Actor> getActorList() {
+        return new ActorDAO().selectAll();
     }
 
 }

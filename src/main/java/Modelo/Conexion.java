@@ -33,7 +33,7 @@ public class Conexion {
      */
     public void abrirConexion() throws ClassNotFoundException, SQLException {
         Class.forName(this.driver);
-        conexion = DriverManager.getConnection(this.url, this.user, this.password);
+        conexion = (Connection) DriverManager.getConnection(this.url, this.user, this.password);
     }
     
     /**
