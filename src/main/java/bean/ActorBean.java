@@ -13,7 +13,7 @@ import javax.inject.Named;
  */
 @Named(value = "actorBean")
 @RequestScoped
-public class ActorBean {
+public class ActorBean extends Actor{
     
     public ActorBean(){
         

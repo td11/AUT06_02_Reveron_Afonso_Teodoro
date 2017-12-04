@@ -7,15 +7,12 @@ package Modelo;
  */
 public class Consultas {
     
-    private final String todosLosActores = "select * from actor";
+    public final String todosLosActores = "select * from actor";
 
     public Consultas(){
         
     }
-    
-    public String getTodosLosActores() {
-        return todosLosActores;
-    }
+
     
     
     

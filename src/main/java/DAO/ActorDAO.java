@@ -33,8 +33,7 @@ public class ActorDAO implements metodos {
         try {
             miconexion = new Conexion();
             miconexion.abrirConexion();
-            //ps = miconexion.getConexion().prepareStatement(miconsulta.getTodosLosActores());
-            ps = miconexion.getConexion().prepareStatement("select * from actor");
+            ps = miconexion.getConexion().prepareStatement(miconsulta.todosLosActores);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -52,6 +51,11 @@ public class ActorDAO implements metodos {
         }
 
         return listadevolver;
+    }
+
+    @Override
+    public void insert(Actor actor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

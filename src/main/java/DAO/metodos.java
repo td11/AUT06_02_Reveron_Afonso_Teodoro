@@ -16,5 +16,6 @@ public interface metodos {
      */
     
     public List<Actor> selectAll();
+    public void insert(Actor actor);
     
 }
