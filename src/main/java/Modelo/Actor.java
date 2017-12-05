@@ -1,6 +1,6 @@
 package Modelo;
 
-import java.sql.Timestamp;
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -8,7 +8,7 @@ import java.util.Date;
  *
  * @author Teddy
  */
-public class Actor {
+public class Actor implements Serializable{
     
     private int actor_id;
     private String firstName;

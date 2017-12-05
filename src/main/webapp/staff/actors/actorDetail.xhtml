@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>Actor Insertado</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <p:panelGrid columns="2">
+            <f:facet name="header">
+                <h:outputText value="Actor insertado" />
+            </f:facet>
+
+            <h:outputText value="ID" />
+            <h:outputText value="${actorBean.actor_id}" />
+            
+            <h:outputText value="Nombre" />
+            <h:outputText value="${actorBean.firstName}" />
+
+            <h:outputText value="Apellidos" />
+            <h:outputText value="${actorBean.lastName}" />
+            
+            <p><h:link outcome="/index" value="Home"/></p>
+            
+        </p:panelGrid>
+    </body>
+</html>

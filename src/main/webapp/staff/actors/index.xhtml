@@ -8,6 +8,7 @@
         <title>Listado</title>
     </h:head>
     <h:body>
+        <p><h:link outcome="newActor" value="Nuevo Actor"/></p>
         <p:dataTable var="actor" value="#{actorBean.actorList}"
                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                 paginator="true" rows="10">

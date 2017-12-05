@@ -3,6 +3,7 @@ package DAO;
 import Modelo.Actor;
 import Modelo.Conexion;
 import Modelo.Consultas;
+import com.mysql.jdbc.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,6 @@ public class ActorDAO implements metodos {
     private PreparedStatement ps;
     private ResultSet rs;
     Conexion miconexion;
-    Consultas miconsulta;
 
     public ActorDAO() {
     }
@@ -33,7 +33,7 @@ public class ActorDAO implements metodos {
         try {
             miconexion = new Conexion();
             miconexion.abrirConexion();
-            ps = miconexion.getConexion().prepareStatement(miconsulta.todosLosActores);
+            ps = miconexion.getConexion().prepareStatement(new Consultas().todosLosActores);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -54,8 +54,32 @@ public class ActorDAO implements metodos {
     }
 
     @Override
-    public void insert(Actor actor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Actor insert(Actor actor) {
+        Actor unactor = null;
+        
+        try {
+            miconexion = new Conexion();
+            miconexion.abrirConexion();
+            ps = miconexion.getConexion().prepareStatement(new Consultas().insertarActor,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, actor.getFirstName());
+            ps.setString(2, actor.getLastName());
+            ps.executeUpdate();
+
+            unactor.setActor_id(ps.getGeneratedKeys().getInt(1));
+            unactor.setFirstName(actor.getFirstName());
+            unactor.setLastName(actor.getLastName());
+            
+            rs.close();
+            ps.close();
+            miconexion.getConexion().close();
+
+        } catch (SQLException ex) {
+            
+        } catch (ClassNotFoundException ex) {
+            
+        }
+        
+        return unactor;
     }
 
 }

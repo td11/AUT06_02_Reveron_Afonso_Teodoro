@@ -8,6 +8,7 @@ package Modelo;
 public class Consultas {
     
     public final String todosLosActores = "select * from actor";
+    public final String insertarActor = "insert into actor (first_name,last_name) values (?,?)";
 
     public Consultas(){
         
